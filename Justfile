@@ -1,2 +1,10 @@
+default: dev
+
 dev:
-    yarn tauri dev
+    deno task tauri dev
+
+lint:
+    deno task lint
+
+fmt:
+    deno task format
