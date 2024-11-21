@@ -1,3 +1,4 @@
 {
-    "*.js": "deno task lint && deno task format"
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
 }

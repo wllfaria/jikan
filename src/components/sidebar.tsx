@@ -1,10 +1,5 @@
-import { Home, MagicStar } from "iconsax-react";
+import { ROUTES } from "@/constants";
 import { Link, useNavigate } from "react-router-dom";
-
-const ROUTES = [
-    { icon: Home, name: "Home", path: "/" },
-    { icon: MagicStar, name: "History", path: "/history" },
-];
 
 export function Sidebar() {
     const navigate = useNavigate();
@@ -15,11 +10,11 @@ export function Sidebar() {
                 <ul className="flex flex-col items-center gap-5">
                     {ROUTES.map((route) => (
                         <li
-                            key={route.name}
+                            key={route.title}
                             className="p-2 rounded-[12px] hover:bg-accent-800 text-accent-300 hover:text-primary-500 cursor-pointer"
-                            onClick={() => navigate(route.path)}
+                            onClick={() => navigate(route.url)}
                         >
-                            <Link to={route.path}>
+                            <Link to={route.title}>
                                 <route.icon variant="Bold" />
                             </Link>
                         </li>

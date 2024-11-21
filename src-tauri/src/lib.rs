@@ -5,7 +5,9 @@ use std::fs::OpenOptions;
 use categories::get_categories;
 use sqlx::sqlite::SqlitePoolOptions;
 use sqlx::Sqlite;
+use tauri::path::BaseDirectory;
 use tauri::{App, Manager};
+use tauri_plugin_fs::FsExt;
 
 type Db = sqlx::Pool<Sqlite>;
 
@@ -47,6 +49,7 @@ async fn setup_db(app: &App) -> Db {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub async fn run() {
     let app = tauri::Builder::default()
+        .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![get_categories])
         .build(tauri::generate_context!())

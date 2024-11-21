@@ -1,10 +1,10 @@
 default: dev
 
 dev:
-    deno task tauri dev
+    yarn tauri dev
 
 lint:
-    deno task lint
+    yarn lint
 
 fmt:
-    deno task format
+    yarn format
